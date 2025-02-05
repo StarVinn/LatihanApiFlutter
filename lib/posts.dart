@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'http_service.dart';
 import 'post_model.dart';
+import 'post_details.dart'; // Updated import for PostDetailsPage
 
 class PostsPage extends StatelessWidget {
   final HttpService httpService = HttpService();
@@ -39,56 +40,6 @@ class PostsPage extends StatelessWidget {
             return Center(child: CircularProgressIndicator());
           }
         },
-      ),
-    );
-  }
-}
-
-class PostDetailsPage extends StatelessWidget {
-  final Post post;
-
-  const PostDetailsPage({required this.post});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Post Details'),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            Text(
-              post.title,
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(height: 10),
-            Row(
-              children: [
-                Text('User ID:'),
-                SizedBox(width: 10),
-                Text(post.UserId.toString()),
-              ],
-            ),
-            SizedBox(height: 10),
-            Row(
-              children: [
-                Text('ID:'),
-                SizedBox(width: 10),
-                Text(post.id.toString()), // Assuming 'id' exists in Post model
-              ],
-            ),
-            SizedBox(height: 10),
-            Row(
-              children: [
-                Text('Body:'),
-                SizedBox(width: 10),
-                Text(post.body.toString()), // Assuming 'id' exists in Post model
-              ],
-            ),
-          ],
-        ),
       ),
     );
   }
